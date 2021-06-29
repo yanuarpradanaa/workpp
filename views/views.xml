@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    
+  
+   <record id="pp_prod" model="ir.ui.view">
+            <field name="name">production pp form1</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view" />
+            <field name="arch" type="xml">
+
+                <field name='product_id' position="before">
+                    <field name="no_spk"/>
+                 
+                </field>
+
+                <field name='bom_id' position="before">
+                    <field name="pelanggan"/>
+                 
+                </field>
+
+                <field name='company_id' position="after">
+                    <field name="cetak_baru"/>         
+                    <field name="repeat"/>               
+                    <field name="proof"/>
+                    <field name="repeat_perubahan"/>
+                    <field name="acuan"/>
+
+                    <field name="keterangan"/>
+                </field>
+               
+               <field name="date_planned_start" position="after">
+                  <field name="deadline"/>
+                </field>
+            </field>
+    </record>
+
+    <record id="bill_of_material_category_tree" model="ir.ui.view">
+            <field name="name">Bill of material category tree</field>
+            <field name="model">mrp.bom</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_tree_view" />
+            <field name="arch" type="xml">
+                <field name="product_tmpl_id" position="after">
+                    <field name="kategori" />
+                </field>
+            </field>
+    </record>
+
+    <record id="pp_bom" model="ir.ui.view">
+            <field name="name">bom pp form1</field>
+            <field name="model">mrp.bom</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_form_view" />
+            <field name="arch" type="xml">
+                <field name='product_tmpl_id' position="after">
+                      <field name="kertas_prima"/>
+                      <field name="kertas_sendiri"/>
+
+                      <field name="jenis_kertas"/>
+
+                      <field name="ukuran_kertas" string="Ukuran Jadi (cm)"/>
+                      <field name="ukuran_potong" string="Ukuran Potong(cm)"/>
+
+
+                      <field name="quantity"/>
+                      <field name="lembar_plano"/>
+                      <field name="lembar_druck"/>
+                      <field name="insheet"/>
+                      <field name="jumlah_plano" invisible="1"/>
+                      <field name="jumlah_druck"/>  
+                </field>
+               
+            </field>
+    </record>
+
+      <record id="mrp_routing_workcenter_form_view" model="ir.ui.view">
+            <field name="name">pp routing workcenter</field>
+            <field name="model">mrp.routing.workcenter</field>
+            <field name="inherit_id" ref="mrp.mrp_routing_workcenter_form_view" />
+            <field name="arch" type="xml">
+
+
+             <xpath expr="//page[1]" position="after">
+                <page string="Cetak">
+                  <group>
+                    <field name="side1"/>
+                    <field name="side2"/>
+                   
+                    <field name="depan"/>
+                    <field name="depan_tambah_warna" />
+                  
+                    <field name="belakang"/>
+                    <field name="belakang_tambah_warna" />
+                  </group>
+                </page>
+
+                <page string="Coating">
+                  <group>
+                    <field name="coating_side"/>
+                    <field name="coating_ket"/>
+                  </group>
+                </page>
+
+                <page string="Laminasi">
+                  <group>
+                   
+                    <field name="eflute_lain"/>
+                  </group>
+                </page>
+
+                <page string="Finishing I">
+                  <group>
+                    <group>
+                      <field name="spiral_lubang"/>
+                      <field name="spiral_ukuran"/>
+                      <field name="spiral_warna"/>
+                    </group>
+                    <group>
+
+                    </group>
+                  </group>
+                </page>
+
+                <page string="Finishing II">
+                  <group>
+                    <group>
+                      <field name="hot_print_warna"/>
+                    </group>
+                    <group>
+                      <field name="emboss_naik_turun"/>
+                    </group>
+                  </group>
+                </page>
+
+                <page string="Plong">
+                  <group>
+                    <field name="plong"/>
+                  </group>
+                </page>
+
+                <page string="Lem">
+                  <group>
+                    <field name="pack_lem"/>
+                  </group>
+                </page>
+
+                <page string="Finishing Lain">
+                  <group>
+                    <field name="potong_jadi_ket"/>
+                    <field name="fin_lain"/>
+                  </group>
+                </page>
+
+               </xpath>
+            </field>
+        </record>
+
+        
+  </data>
+</odoo>
